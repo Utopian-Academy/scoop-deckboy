@@ -1,0 +1,30 @@
+# Install Deckboy from this bucket on a clean runner, exactly as a user would,
+# and ask the installed binary what it is.
+name: Install test
+on:
+  push:
+  workflow_dispatch:
+  schedule:
+    - cron: '41 5 * * 1'
+jobs:
+  install:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Scoop
+        shell: pwsh
+        run: |
+          Invoke-RestMethod -Uri https://get.scoop.sh -OutFile install.ps1
+          .\install.ps1 -RunAsAdmin
+          Join-Path (Resolve-Path ~).Path "scoop\shims" >> $env:GITHUB_PATH
+      - name: Install Deckboy from this bucket
+        shell: pwsh
+        run: |
+          scoop bucket add deckboy $env:GITHUB_WORKSPACE
+          scoop install deckboy/deckboy
+          $exe = Join-Path (scoop prefix deckboy) "Deckboy.exe"
+          $out = Join-Path $env:RUNNER_TEMP "version.txt"
+          $p = Start-Process -FilePath $exe -ArgumentList "--version" -Wait -NoNewWindow -PassThru -RedirectStandardOutput $out
+          Get-Content $out
+          $want = (Get-Content bucket\deckboy.json | ConvertFrom-Json).version
+          if (-not (Select-String -Path $out -Pattern ([regex]::Escape($want)) -Quiet)) { throw "installed binary does not report $want" }
