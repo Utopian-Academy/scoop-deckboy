@@ -20,7 +20,7 @@ jobs:
       - name: Install Deckboy from this bucket
         shell: pwsh
         run: |
-          scoop bucket add deckboy $env:GITHUB_WORKSPACE
+          scoop bucket add deckboy "https://github.com/$env:GITHUB_REPOSITORY"
           scoop install deckboy/deckboy
           $exe = Join-Path (scoop prefix deckboy) "Deckboy.exe"
           $out = Join-Path $env:RUNNER_TEMP "version.txt"
