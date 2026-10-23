@@ -1,5 +1,5 @@
 {
-    "version": "0.99.417",
+    "version": "0.99.418",
     "description": "Free, open-source cue-based media playback and show control for live video",
     "homepage": "https://utopian-academy.github.io/Deckboy/",
     "license": "GPL-3.0-or-later",
@@ -9,9 +9,9 @@
     ],
     "architecture": {
         "64bit": {
-            "url": "https://github.com/Utopian-Academy/Deckboy/releases/download/v0.99.417/Deckboy-0.99.417-windows-x64.zip",
-            "hash": "7fea464ed20d3e4487f427dd59c1b5fc3ab9f39a8219c4ad9bed1e0b424439a1",
-            "extract_dir": "Deckboy-0.99.417-windows-x64"
+            "url": "https://github.com/Utopian-Academy/Deckboy/releases/download/v0.99.418/Deckboy-0.99.418-windows-x64.zip",
+            "hash": "538bbf9a72e157401207981f01c2ea5545a0580a523639e3383aac97fb0ba506",
+            "extract_dir": "Deckboy-0.99.418-windows-x64"
         }
     },
     "env_set": {
