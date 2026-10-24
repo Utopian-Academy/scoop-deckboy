@@ -10,7 +10,7 @@
     "architecture": {
         "64bit": {
             "url": "https://github.com/Utopian-Academy/Deckboy/releases/download/v0.99.419/Deckboy-0.99.419-windows-x64.zip",
-            "hash": "cb44ef60c9b985b6692fee5e6527c1c8b8582eded0576fe09e46e45256443f77",
+            "hash": "babe63f268aa8db72fdaa178ed94368d1721dcbcd477c606c9358c4deac017a4",
             "extract_dir": "Deckboy-0.99.419-windows-x64"
         }
     },
